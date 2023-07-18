@@ -29,7 +29,12 @@ public class Main {
 
         System.out.println("\n#### TEST 4: seller insert ####");
         Seller newSeller = new Seller(null, "Greg", "Greg@email.com", new Date(), 4000.0, department);
-        sellerDao.insert(newSeller);
+        //sellerDao.insert(newSeller);
         System.out.println("New seller added with id: " + newSeller.getId());
+
+        System.out.println("\n#### TEST 4: seller update ####");
+        Seller updateSeller = new Seller(9, "Greg Chris", "Greg@email.com", new Date(), 5000.0, department);
+        sellerDao.update(updateSeller);
+        System.out.println("Update complete");
     }
 }
