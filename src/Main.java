@@ -19,5 +19,11 @@ public class Main {
         for (Seller sell : sellerList) {
             System.out.println(sell);
         }
+
+        System.out.println("\n#### TEST 3: seller findAll ####");
+        sellerList = sellerDao.findAll();
+        for (Seller sell : sellerList) {
+            System.out.println(sell);
+        }
     }
 }
