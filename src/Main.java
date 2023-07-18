@@ -32,9 +32,13 @@ public class Main {
         //sellerDao.insert(newSeller);
         System.out.println("New seller added with id: " + newSeller.getId());
 
-        System.out.println("\n#### TEST 4: seller update ####");
+        System.out.println("\n#### TEST 5: seller update ####");
         Seller updateSeller = new Seller(9, "Greg Chris", "Greg@email.com", new Date(), 5000.0, department);
         sellerDao.update(updateSeller);
         System.out.println("Update complete");
+
+        System.out.println("\n#### TEST 6: seller delete ####");
+        sellerDao.deleteById(10);
+        System.out.println("Delete complete");
     }
 }
