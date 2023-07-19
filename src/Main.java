@@ -18,5 +18,9 @@ public class Main {
 
         System.out.println(departmentDao.findById(3));
 
+//        Department dep = new Department(null, "TECH");
+//        departmentDao.insert(dep);
+//        System.out.println(dep);
+
     }
 }
