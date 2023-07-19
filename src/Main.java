@@ -1,4 +1,5 @@
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -8,37 +9,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        SellerDao sellerDao = DaoFactory.createSellerDao();
+        DepartmentDao departmentDao = DaoFactory.createDepartmentDAO();
 
-        System.out.println("#### TEST 1: seller findById ####");
-        Seller seller = sellerDao.findById(3);
-        System.out.println(seller);
-
-        System.out.println("\n#### TEST 1: seller findById ####");
-        Department department = new Department(2, null);
-        List<Seller> sellerList = sellerDao.findByDepartment(department);
-        for (Seller sell : sellerList) {
-            System.out.println(sell);
+        List<Department> departmentList = departmentDao.findAll();
+        for (Department dep : departmentList) {
+            System.out.println(dep);
         }
 
-        System.out.println("\n#### TEST 3: seller findAll ####");
-        sellerList = sellerDao.findAll();
-        for (Seller sell : sellerList) {
-            System.out.println(sell);
-        }
-
-        System.out.println("\n#### TEST 4: seller insert ####");
-        Seller newSeller = new Seller(null, "Greg", "Greg@email.com", new Date(), 4000.0, department);
-        //sellerDao.insert(newSeller);
-        System.out.println("New seller added with id: " + newSeller.getId());
-
-        System.out.println("\n#### TEST 5: seller update ####");
-        Seller updateSeller = new Seller(9, "Greg Chris", "Greg@email.com", new Date(), 5000.0, department);
-        sellerDao.update(updateSeller);
-        System.out.println("Update complete");
-
-        System.out.println("\n#### TEST 6: seller delete ####");
-        sellerDao.deleteById(10);
-        System.out.println("Delete complete");
     }
 }
