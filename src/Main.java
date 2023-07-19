@@ -16,5 +16,7 @@ public class Main {
             System.out.println(dep);
         }
 
+        System.out.println(departmentDao.findById(3));
+
     }
 }
