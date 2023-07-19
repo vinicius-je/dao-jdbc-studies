@@ -24,5 +24,7 @@ public class Main {
 
 //        departmentDao.deleteById(6);
 
+        departmentDao.update(new Department(4, "Books"));
+
     }
 }
