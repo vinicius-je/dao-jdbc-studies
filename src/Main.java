@@ -22,5 +22,7 @@ public class Main {
 //        departmentDao.insert(dep);
 //        System.out.println(dep);
 
+//        departmentDao.deleteById(6);
+
     }
 }

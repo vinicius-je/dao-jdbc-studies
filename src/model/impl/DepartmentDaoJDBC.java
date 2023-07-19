@@ -21,7 +21,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     public void insert(Department department) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Department dep = null;
 
         try {
             ps = conn.prepareStatement(
@@ -48,13 +47,26 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     }
 
     @Override
-    public void update(Department obj) {
+    public void update(Department department) {
 
     }
 
     @Override
     public void deleteById(Integer id) {
+        PreparedStatement ps = null;
 
+        try {
+            ps = conn.prepareStatement(
+                    "DELETE FROM department " +
+                        "WHERE id = ?");
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(ps);
+        }
     }
 
     @Override
